@@ -1,0 +1,144 @@
+@charset "utf-8";
+/* CSS Document */
+// -- Equal Spaced Columns -- //
+// Number of Columns - First Column
+// Remaining Number of Columns * Margin Spacing
+// Container Width - Total Margin Spacing
+// Remaining Width / Total Number of Columns
+
+// -- Clearfix -- //
+// @extend .clearfix
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+@mixin equalSpaced( $num_of_cols, $spacing, $width  ){
+  
+  width: ( $width - ( $spacing * ($num_of_cols - 1) ) ) / $num_of_cols;
+  margin-left: $spacing;
+  
+  // Remove Spacing from First Child
+  &:first-child{
+    margin-left: 0;
+  }
+  
+}
+
+.container{
+  max-width: 800px;
+  background-color: #abc;
+  margin: 5% auto;
+}
+
+.center img{
+	margin-left: auto;
+	margin-right: auto;
+}
+
+input[type="button"]{
+	background-color: #6998FF;
+	color: #FFFFFF;
+	font-size: small;
+	border: #84D0D7 1px solid;
+	font-weight: 800;
+}
+.col-container{
+  @extend .clearfix;
+  padding-bottom: 5px;
+}
+
+// Col 2 Usage
+.col-2{
+  background: #333;
+  min-height: 100px;
+  float: left;
+  // equalSpaced( $num_of_cols, $spacing, $width  )
+  @include equalSpaced(2, 5%, 100%);
+}
+
+
+// Col 2 Usage
+.col-3{
+  background: #333;
+  min-height: 100px;
+  float: left;
+  // equalSpaced( $num_of_cols, $spacing, $width  )
+  @include equalSpaced(3, 2%, 100%);
+}
+
+// Col 2 Usage
+.col-4{
+  //background: #333;
+  min-height: 100px;
+  float: left;
+  // equalSpaced( $num_of_cols, $spacing, $width  )
+  @include equalSpaced(4, 0%, 100%);
+    //@include equalSpaced(3, 2%, 100%);
+  
+}
+
+.col-4 > img{
+	border-radius: 2px;
+}
+
+.col-4:focus img{
+	transition-property: width;
+    transition-duration: 0.5s;
+    transition-timing-function: linear;
+}
+[data-role=modal]{
+  display:none;
+  position:fixed;
+  top:20%;
+  left:10%;
+  width: 60%;
+  z-index:15;
+  max-height:80%;
+  padding:5vh;
+  border:1px solid #333;
+  min-height:10%;
+  color:#fff;
+  background-color:#666;
+  box-shadow:1px 1px 2px rgb(0,0,0);
+  border-radius: 5px;
+  
+}
+
+// -- Clearfix -- //
+// @extend .clearfix
+.clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+
+// -- Equal Spaced Columns -- //
+// Number of Columns - First Column
+// Remaining Number of Columns * Margin Spacing
+// Container Width - Total Margin Spacing
+// Remaining Width / Total Number of Columns
+
+@mixin equalSpaced( $num_of_cols, $spacing, $width  ){
+  
+  width: ( $width - ( $spacing * ($num_of_cols - 1) ) ) / $num_of_cols;
+  margin-left: $spacing;
+  
+  // Remove Spacing from First Child
+  &:first-child{
+    margin-left: 0;
+  }
+  
+}
+
+ul li{
+	list-style-type: none;
+}
+
+

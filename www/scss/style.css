@@ -1,0 +1,84 @@
+/* CSS Document */
+.clearfix:after, .col-container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+.container {
+  max-width: 800px;
+  background-color: #abc;
+  margin: 5% auto; }
+
+.center img {
+  margin-left: auto;
+  margin-right: auto; }
+
+input[type="button"] {
+  background-color: #6998FF;
+  color: #FFFFFF;
+  font-size: small;
+  border: #84D0D7 1px solid;
+  font-weight: 800; }
+
+.col-container {
+  padding-bottom: 5px; }
+
+.col-2 {
+  background: #333;
+  min-height: 100px;
+  float: left;
+  width: 47.5%;
+  margin-left: 5%; }
+  .col-2:first-child {
+    margin-left: 0; }
+
+.col-3 {
+  background: #333;
+  min-height: 100px;
+  float: left;
+  width: 32%;
+  margin-left: 2%; }
+  .col-3:first-child {
+    margin-left: 0; }
+
+.col-4 {
+  min-height: 100px;
+  float: left;
+  width: 25%;
+  margin-left: 0%; }
+  .col-4:first-child {
+    margin-left: 0; }
+
+.col-4 > img {
+  border-radius: 2px; }
+
+.col-4:focus img {
+  transition-property: width;
+  transition-duration: 0.5s;
+  transition-timing-function: linear; }
+
+[data-role=modal] {
+  display: none;
+  position: fixed;
+  top: 20%;
+  left: 10%;
+  width: 60%;
+  z-index: 15;
+  max-height: 80%;
+  padding: 5vh;
+  border: 1px solid #333;
+  min-height: 10%;
+  color: #fff;
+  background-color: #666;
+  box-shadow: 1px 1px 2px black;
+  border-radius: 5px; }
+
+.clearfix:after, .col-container:after {
+  content: "";
+  display: table;
+  clear: both; }
+
+ul li {
+  list-style-type: none; }
+
+/*# sourceMappingURL=style.css.map */
