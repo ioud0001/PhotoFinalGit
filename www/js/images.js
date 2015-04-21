@@ -1,7 +1,7 @@
 //var url = "http://localhost/semester2/mad9022/photofinal/www/";
 var url = "http://m.edumedia.ca/ioud0001/mad9022/final/";
 //var device_id = device.UUID;
-var device_id = "7064C9D1-8BB5-4E3E-8042-166BB578E152";
+var device_id = app.deviceID; // this device id 
 var image_id; 
 // the image id is global so it can be re-used in the modals - to view an image and to remove an image from the list and database 
 // the image id is declared in the fetchImg function and changes each time an image is clicked
