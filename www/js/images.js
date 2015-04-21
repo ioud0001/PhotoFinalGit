@@ -7,8 +7,13 @@ var image_id;
 // the image id is declared in the fetchImg function and changes each time an image is clicked
 
 var json; // I personally think it makes sense to make the json data global so it could be accessed from anywhere in the app 
-var message = "";  
-var statusTimer=setTimeout("function(){document.querySelector('.status').innerHTML = '" + message + "';}", "600"); 
+var message = "";  // status message telling you an image was deleted 
+var timeout; // timeout variable - the message will disappear 
+
+function downloadGrid(){
+	var path = url + "list.php?dev=" + device_id;  
+	sendRequest(path, imgReturned, "GET");
+}
 
 function fetchImg(ev){
 	image_id  = ev.target.parentElement.firstElementChild.id;
@@ -53,10 +58,7 @@ function modalImg(xhr){
 	grid.btnhide(); 
 }
 
-function downloadGrid(){
-	var path = url + "list.php?dev=" + device_id;  
-	sendRequest(path, imgReturned, "GET");
-}
+
 
 // returns the images and initializes the tap event for each image
 function imgReturned(xhr){
@@ -179,27 +181,15 @@ init: function(){
   }
 }
 
+// this function will clear the "deleted message" status after 10 seconds 
 function imgDelete(xhr){
-	message = JSON.parse(xhr.responseText);
+	timeout = setTimeout('status_clear()', 10000); // clears the status after 10 seconds; 
+    message = JSON.parse(xhr.responseText);
 	document.querySelector(".status").innerHTML = message.message; // displays a message to the user if image was deleted successfully or not
-	clearTimeout(statusTimer); 
 }
 
-function hideStatus(){
-	
-}
-
-
-function timeout_trigger() {
-    document.getElementById('timeout_text').innerHTML = 'The timeout has been triggered';
-}
-
-function timeout_clear() {
+function status_clear() {
     clearTimeout(timeout);
-    document.getElementById('timeout_text').innerHTML = 'The timeout has been cleared';
-}
+    document.querySelector(".status").innerHTML = ""; // clears the status message 
 
-function timeout_init() {
-    timeout = setTimeout('timeout_trigger()', 3000);
-    document.getElementById('timeout_text').innerHTML = 'The timeout has been started';
 }
